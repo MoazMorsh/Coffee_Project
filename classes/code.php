@@ -2,7 +2,7 @@
 
 global $conn;
 session_start();
-require 'connect.php';
+require 'classes\connect.php';
 
 if (isset($_POST['delete_order'])) {
     $order_id = mysqli_real_escape_string($conn, $_POST['delete_order']);

@@ -2,7 +2,7 @@
 
 global $conn;
 
-include 'connect.php';
+include 'classes\connect.php';
 
 
 if(isset($_POST['signUp'])){

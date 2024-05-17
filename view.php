@@ -1,6 +1,6 @@
 <?php
 global $conn;
-require 'connect.php';
+require 'classes\connect.php';
 ?>
 <!doctype html>
 <html lang="en">
