@@ -1,7 +1,13 @@
 <?php
 global $conn;
-session_start();
 require 'classes\connect.php';
+
+use App\authentication;
+$myauth = new authentication;
+$myauth->auth();
+$myauth->logOut();
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,7 +33,7 @@ require 'classes\connect.php';
                 <div class="card-header">
                     <h4>Order Details
                         <a href="create.php" class="btn btn-primary float-end">Add Order</a>
-                        <a  href="homepage.php" class="btn btn-primary float-end">logout</a>
+                        <input type="submit" class="btn" value="Log out" name="logout">
                     </h4>
 
                 </div>

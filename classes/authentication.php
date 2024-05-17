@@ -1,8 +1,7 @@
 <?php
 namespace App;
 
-require'classes\connect.php';
-
+require'connect.php';
 
 class Authentication
 {
@@ -13,6 +12,16 @@ class Authentication
             header('Location: ../homepage.php');
         }
     }
+
+
+    // used to prevent access of SignUp.php & SignUp.php pages when user is authenticated
+    public function redirectIfAuth()
+    {
+        if (isset($_SESSION['user_id'])) {
+            header('Location: ../order.php');
+        }
+    }
+
 
     // return true or false
     public function is_auth()
@@ -36,8 +45,9 @@ class Authentication
     public function signin()
         
         {
+            global $conn;
             if(isset($_POST['signIn'])){
-                require 'classes\connect.php';
+                require 'connect.php';
                 $email=$_POST['email'];
                 $password=$_POST['password'];
                 $password=md5($password) ;

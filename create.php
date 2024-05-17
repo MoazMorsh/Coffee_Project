@@ -1,5 +1,10 @@
 <?php
 session_start();
+use App\authentication;
+$myauth = new authentication;
+$myauth->auth();
+$myauth->logOut();
+
 ?>
 
 <!doctype html>
@@ -26,7 +31,7 @@ session_start();
                 <div class="card-header">
                     <h4>Order Add
                         <a href="order.php" class="btn btn-danger float-end">BACK</a>
-                        <a href="homepage.php" class="btn btn-primary float-end">logout</a>
+                        <input type="submit" class="btn" value="Log out" name="logout">
                     </h4>
                 </div>
                 <div class="card-body">

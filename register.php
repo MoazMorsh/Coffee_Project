@@ -1,8 +1,13 @@
 <?php
-
 global $conn;
 
-include '/classes/connect.php';
+use App\authentication;
+$myauth = new authentication;
+$myauth->redirectIfAuth();
+$myauth->signin();
+
+
+include 'classes/connect.php';
 
 
 if(isset($_POST['signUp'])){

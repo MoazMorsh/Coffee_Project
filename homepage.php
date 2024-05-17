@@ -1,3 +1,10 @@
+<?php
+require('./vendor/autoload.php');
+use App\Authentication;
+$myauth = new Authentication;
+$myauth->redirectIfAuth();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
