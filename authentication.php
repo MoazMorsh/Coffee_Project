@@ -1,6 +1,7 @@
 <?php
 
 require'connect.php';
+
     function admin()
     {
         global $conn;
