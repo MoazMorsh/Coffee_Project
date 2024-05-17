@@ -20,7 +20,7 @@ require 'classes\connect.php';
 
 <div class="container mt-5">
 
-    <?php include('message.php'); ?>
+    <?php include('classes\message.php'); ?>
 
     <div class="row">
         <div class="col-md-12">
@@ -44,7 +44,7 @@ require 'classes\connect.php';
                         {
                             $order = mysqli_fetch_array($query_run);
                             ?>
-                            <form action="code.php" method="POST">
+                            <form action="classes\code.php" method="POST">
                                 <input type="hidden" name="order_id" value="<?= $order['order_id']; ?>">
 
                                 <div class="mb-3">
