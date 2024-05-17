@@ -30,7 +30,7 @@ session_start();
                     </h4>
                 </div>
                 <div class="card-body">
-                    <form action="classes\code.php" method="POST">
+                    <form action="classes/code.php" method="POST">
 
                         <div class="mb-3">
                             <label>Customer Name</label>
