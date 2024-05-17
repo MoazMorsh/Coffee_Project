@@ -50,8 +50,15 @@ require 'classes\connect.php';
                         <?php
                         if(isset($_SESSION['email'])) {
                             $email = $_SESSION['email'];
-                            $query = "SELECT * FROM order_details WHERE email = '$email'";
-                            $query_run = mysqli_query($conn, $query);
+                            if($email==='admin@gmail.com'){
+                                $query = "SELECT * FROM order_details";
+                                $query_run = mysqli_query($conn, $query);
+                            }
+                            else {
+                                $query = "SELECT * FROM order_details WHERE email = '$email'";
+                                $query_run = mysqli_query($conn, $query);
+                            }
+
 
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -67,15 +74,15 @@ require 'classes\connect.php';
                                         <td>
                                             <a href="view.php?id=<?= $order['order_id']; ?>" class="btn btn-info btn-sm">View</a>
                                             <a href="edit.php?id=<?= $order['order_id']; ?>" class="btn btn-success btn-sm">Edit</a>
-                                            <form action="classes/code.php" method="POST" class="d-inline">
+                                            <form action="code.php" method="POST" class="d-inline">
                                                 <button type="submit" name="delete_order" value="<?=$order['order_id'];?>" class="btn btn-danger btn-sm">Delete</button>
                                             </form>
                                         </td>
                                     </tr>
-                            
-                                <?php
+
+                                    <?php
+                                }
                             }
-                        }
                         }
                         else
                         {
