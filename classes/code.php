@@ -2,7 +2,7 @@
 
 global $conn;
 session_start();
-require 'classes\connect.php';
+require 'connect.php';
 
 if (isset($_POST['delete_order'])) {
     $order_id = mysqli_real_escape_string($conn, $_POST['delete_order']);
@@ -12,11 +12,11 @@ if (isset($_POST['delete_order'])) {
 
     if ($query_run) {
         $_SESSION['message'] = "Order Deleted Successfully";
-        header("Location: order.php");
+        header("Location: ..\order.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Order Not Deleted";
-        header("Location: order.php");
+        header("Location: ..\order.php");
         exit(0);
     }
 }
@@ -34,11 +34,11 @@ if (isset($_POST['update_order'])) {
 
     if ($query_run) {
         $_SESSION['message'] = "Order Updated Successfully";
-        header("Location: order.php");
+        header("Location: ..\order.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Order Not Updated";
-        header("Location: order.php");
+        header("Location: ..\order.php");
         exit(0);
     }
 
@@ -56,11 +56,11 @@ if (isset($_POST['save_order'])) {
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
         $_SESSION['message'] = "Order Created Successfully";
-        header("Location: order.php");
+        header("Location: ..\order.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Order Not Created";
-        header("Location: create.php");
+        header("Location: ..\create.php");
         exit(0);
     }
 }
