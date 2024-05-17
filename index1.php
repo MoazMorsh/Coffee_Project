@@ -1,3 +1,11 @@
+<?php
+session_start();
+require 'classes/authentication.php';
+use App\authentication;
+$myauth = new authentication;
+$myauth->redirectIfAuth();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

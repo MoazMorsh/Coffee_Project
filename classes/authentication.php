@@ -1,15 +1,18 @@
 <?php
 namespace App;
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 
 require'connect.php';
 
-class Authentication
+class authentication
 {
     
     public function auth()
     {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: ../homepage.php');
+            header('Location: homepage.php');
         }
     }
 
@@ -18,7 +21,8 @@ class Authentication
     public function redirectIfAuth()
     {
         if (isset($_SESSION['user_id'])) {
-            header('Location: ../order.php');
+            header('Location: order.php');
+            exit;
         }
     }
 
@@ -27,6 +31,7 @@ class Authentication
     public function is_auth()
     {
         return isset($_SESSION['user_id']);
+        exit;
     }
 
     public function logOut()
@@ -35,7 +40,8 @@ class Authentication
         if (isset($_GET['logout'])) {
             session_unset();
             session_destroy();
-            header('Location: ../homepage.php');
+            header('Location: homepage.php');
+            exit;
         }
     }
 
@@ -55,13 +61,12 @@ class Authentication
                 $sql="SELECT * FROM users WHERE email='$email' and password='$password'";
                 $result=$conn->query($sql);
             if($result->num_rows==1){
-                session_start();
             
                 $row=$result->fetch_assoc();
                 $_SESSION['email']=$row['email'];
-                $_SESSION['user_id']=$row['id'];
-                header("Location: ../order.php");
-                exit();
+                $_SESSION['user_id']=$row['Id'];
+                header('Location: order.php');
+                exit;
             }
             else{
                 echo "Not Found, Incorrect Email or Password";

@@ -1,7 +1,8 @@
 <?php
+session_start();
 global $conn;
 
-
+require 'classes/authentication.php';
 require 'classes\connect.php';
 use App\authentication;
 $myauth = new authentication;
@@ -32,7 +33,8 @@ $myauth->logOut();
                 <div class="card-header">
                     <h4>Order View Details
                         <a href="order.php" class="btn btn-danger float-end">BACK</a>
-                        <input type="submit" class="btn" value="Log out" name="logout">
+                        <a href="?logout=true" class="btn btn-danger float-end">Log out</a>
+
                     </h4>
                 </div>
                 <div class="card-body">

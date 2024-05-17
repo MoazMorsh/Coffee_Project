@@ -1,7 +1,8 @@
 <?php
-require('./vendor/autoload.php');
-use App\Authentication;
-$myauth = new Authentication;
+session_start();
+require 'classes/authentication.php';
+use App\authentication;
+$myauth = new authentication;
 $myauth->redirectIfAuth();
 
 ?>

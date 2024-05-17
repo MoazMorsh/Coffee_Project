@@ -1,6 +1,8 @@
 <?php
+session_start();
 global $conn;
 require 'classes\connect.php';
+require 'classes/authentication.php';
 
 use App\authentication;
 $myauth = new authentication;
@@ -33,7 +35,8 @@ $myauth->logOut();
                 <div class="card-header">
                     <h4>Order Details
                         <a href="create.php" class="btn btn-primary float-end">Add Order</a>
-                        <input type="submit" class="btn" value="Log out" name="logout">
+                        <a href="?logout=true" class="btn btn-danger float-end">Log out</a>
+
                     </h4>
 
                 </div>
@@ -89,11 +92,12 @@ $myauth->logOut();
                                     <?php
                                 }
                             }
+                            else
+                            {
+                                echo "<h5> No Record Found </h5>";
+                            }
                         }
-                        else
-                        {
-                            echo "<h5> No Record Found </h5>";
-                        }
+                          
                         ?>
 
                         </tbody>
