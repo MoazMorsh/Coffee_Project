@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-require'connect.php';
+require'classes\connect.php';
 
 class authentication{
     function admin()

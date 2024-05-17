@@ -1,7 +1,7 @@
 <?php
 global $conn;
 session_start();
-require 'connect.php';
+require 'classes\connect.php';
 ?>
 
 <!doctype html>
