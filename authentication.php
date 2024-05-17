@@ -1,7 +1,7 @@
 <?php
 
 require'connect.php';
-
+//7asb yala
     function admin()
     {
         global $conn;
