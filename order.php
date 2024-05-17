@@ -45,11 +45,20 @@ require 'connect.php';
                         </tr>
                         </thead>
                         <tbody>
+
+
                         <?php
                         if(isset($_SESSION['email'])) {
                             $email = $_SESSION['email'];
-                            $query = "SELECT * FROM order_details WHERE email = '$email'";
-                            $query_run = mysqli_query($conn, $query);
+                            if($email==='admin@gmail.com'){
+                                $query = "SELECT * FROM order_details";
+                                $query_run = mysqli_query($conn, $query);
+                            }
+                            else {
+                                $query = "SELECT * FROM order_details WHERE email = '$email'";
+                                $query_run = mysqli_query($conn, $query);
+                            }
+
 
                             if(mysqli_num_rows($query_run) > 0)
                             {

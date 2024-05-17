@@ -4,6 +4,7 @@ global $conn;
 
 include 'connect.php';
 
+
 if(isset($_POST['signUp'])){
     $firstName=$_POST['fName'];
     $lastName=$_POST['lName'];
